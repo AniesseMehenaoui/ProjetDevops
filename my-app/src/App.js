@@ -1,16 +1,12 @@
 import './App.css';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import ResultatListeRecettes from './component/ResultatListeRecettes';
-import Resultat from './component/Resultat';
-import RecipeComponent from './component/RecipeComponent';
 import RecommendedRecipeComponent from './component/RecommendedRecipeComponent';
 import AjoutRecettes from './component/AjoutRecettes';
 import Historique from './component/Historique';
 import React, { useEffect, useState } from 'react'
 import {  useNavigate, useLocation } from 'react-router-dom'
 import Ingredients from './component/Ingredients';
-import Personnel from './component/Personnel';
-import Resultat from './component/Resultat';
 import Header from './component/Header';
 import RecipeComponent from './component/RecipeComponent'
 import Login from "./component/Login";
@@ -82,14 +78,9 @@ function App() {
         <Routes>
         <Route path='Historique' element={<Historique/>}/>
           <Route path='/AjoutRecettes' element={<AjoutRecettes/>}/>
-          <Route path='/Resultat' element={<Resultat/>}/>
           <Route path = '/ResultatListeRecettes' element = {<ResultatListeRecettes/>}/>
           <Route path='/RecipeComponent' element={<RecipeComponent/>}/>
           <Route path='/recommended' element={<RecommendedRecipeComponent/>}/>
-          <Route path="personnel" element={<Personnel />} />
-          <Route path="ingredients" element={<Ingredients />} />
-          <Route path="Resultat" element={<Resultat />} />
-          <Route path="recipeComponent" element={<RecipeComponent />} />
           <Route path="addUser" element={<AddUser setUserInfo={setUserInfo} />} />
           <Route path="*" element={<Login setUserInfo={setUserInfo} />} />
         </Routes>

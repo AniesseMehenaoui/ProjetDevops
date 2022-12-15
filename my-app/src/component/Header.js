@@ -22,6 +22,8 @@ export default function Header({ userInfo, setUserInfo }) {
                 <div className="navbar-nav mr-auto me-auto">
                         <Link className="nav-link" >Historique</Link>
                         <Link to ='/RecipeComponent' className="nav-link" >Recettes</Link>
+                    <Link to ='/Historique'className="nav-link" >Historique</Link>
+                    <Link to ='/recommended' className="nav-link" >Recommandation</Link>
                         
                 </div>
                 <div className="navbar-nav d-flex align-items-center">
