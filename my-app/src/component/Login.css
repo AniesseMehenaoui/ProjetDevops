@@ -1,0 +1,44 @@
+.title{
+    color: green;
+    font-weight: 600;
+    font-size: larger;
+}
+label{
+    color : Black
+}
+.login-container{
+    margin: auto;
+    justify-content: center;
+    display : flex;
+    margin-top: 50px;
+    width: 600px;
+    border: 1px solid black ;
+    border: 1px solid black;
+}
+.all-form{
+    margin-top: 50px;
+}
+input{
+    display: block;
+    width: 300px !important;
+    height: 30px;
+}
+
+button{
+    background-color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.login-container {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+   
+} 
+
+span{
+    color: green;  
+}

@@ -1,0 +1,33 @@
+.add-user-container {
+    margin: auto;
+    justify-content: center;
+    display :grid;
+    grid-template-columns: auto;
+    margin-top: 50px;
+    width: 600px;
+    border: 1px solid black ;
+    border: 1px solid black;
+} 
+label {
+    font-weight: 600;
+    color: green;
+}
+
+.container-valid {
+    margin-top: 15px;
+}
+h1{
+    color: green;
+}
+
+h5{
+    color: greenyellow;
+}
+
+.form-control{
+    justify-content: center;
+    display : flex;
+
+}
+
+
