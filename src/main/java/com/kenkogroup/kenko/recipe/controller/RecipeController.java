@@ -6,7 +6,9 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import javax.management.AttributeNotFoundException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -87,7 +89,56 @@ public class RecipeController {
 			recettes.add(hit.getRecipe());
 		}
 		return recettes;
+	}
 
+	@GetMapping("/{age}/{weight}/{tall}/{sexe}/{mealType}")
+	public List<RecipeEdamam> getRecipeWithCalories(@PathVariable String age,@PathVariable String weight,
+													@PathVariable String tall, @PathVariable String sexe,@PathVariable String mealType) throws JsonProcessingException {
+
+		Double weightDouble =  Double.parseDouble(weight) * 10;
+		Double tallCalculator =  Double.parseDouble(tall) * 6.25;
+		Double calories = weightDouble + tallCalculator;
+		Double ageDouble =  (Double.parseDouble(age) * 5);
+		calories -= ageDouble;
+
+		if(sexe.equals("Homme"))
+			calories += 5;
+		else { calories -= 161; }
+		List<String> ingredients = Arrays.asList("tomato", "onion","strawberry","Carrot","Garlic",
+				"Potato","Orange","Kiwi","Blackberries","Apple","Milk","Butter","Cheese","meat","Beef","Chicken","Fish");
+		Random random = new Random();
+		System.out.println("Calories : " + calories);
+		System.out.println("Calories : " + calories.intValue());
+		System.out.println("Calories : " + calories.intValue());
+		String url = "https://api.edamam.com/search?q="+ingredients.get(random.nextInt(ingredients.size()+1))
+				+"&app_id=656be70f&app_key=036042af3e99ebf91c95f241611890b9&from=0&to=1&calories="
+				+calories.intValue()+"-"+calories.intValue()+300+"&mealType="+mealType;
+		HttpRequest request = HttpRequest.newBuilder()
+				.uri(URI.create(url))
+				.header("Accept", "/")
+				.header("Accept-Encoding", "deflate, br")
+				.method("GET", HttpRequest.BodyPublishers.noBody())
+				.build();
+		HttpResponse<String> response = null;
+		try {
+			response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+		} catch (IOException | InterruptedException e) {
+			e.printStackTrace();
+		}
+		String responseString = response.body();
+
+		Example data = new ObjectMapper().readValue(responseString, Example.class);
+
+		List<Hit> hitList = data.getHits();
+
+		List<RecipeEdamam> recettes = new ArrayList<>();
+
+		for (Hit hit : hitList) {
+			if(hit.getRecipe().getCalories()>2000)
+				hit.getRecipe().setCalories(hit.getRecipe().getCalories()/3);
+			recettes.add(hit.getRecipe());
+		}
+		return recettes;
 	}
 
 /*
