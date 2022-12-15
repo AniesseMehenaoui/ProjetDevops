@@ -90,22 +90,22 @@ class RecipeComponent extends Component {
     render() {
         return (
             <div>
-                <form>
+                <form className='.add-user-container'>
                     <label>Ingredients</label>
-                    <input type="text" placeholder="search" name="search" onChange={async (event) => {
 
+                    <input type="text" placeholder="search" name="search" className="form-control" onChange={async (event) => {
                         const value = event.target.value;
                         this.setState({ resultRecipe: value });
                     }} />
                     <br></br>
                     <label>Recipe Number</label>
-                    <input type="text" placeholder="Recipe Number" onChange={async (event) => {
+                    <input type="text" placeholder="Recipe Number" className="form-control" onChange={async (event) => {
                         const value = event.target.value;
                         this.setState({ recipeNumber: value });
                     }} />
                     <br></br>
                     <label>Duration</label>
-                    <input type="text" placeholder="Max Duration" onChange={async (event) => {
+                    <input type="text" placeholder="Max Duration" className="form-control" onChange={async (event) => {
                         const value = event.target.value;
                         this.setState({ duration: value });
                     }} />

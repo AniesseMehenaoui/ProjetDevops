@@ -1,16 +1,20 @@
 package com.kenkogroup.kenko;
-
-
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+@SpringBootApplication
+public class KenkoApplication  implements CommandLineRunner {
 
-@EnableJpaRepositories("com.kenkogroup.kenko.recipe.repository")
-@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class})
-public class KenkoApplication {
+    @Value("${jwt.secret}")
+    private String jwt;
     public static void main(String[] args) {
         SpringApplication.run(KenkoApplication.class, args);
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        System.out.println("property jwt value is: " + jwt);
     }
 }

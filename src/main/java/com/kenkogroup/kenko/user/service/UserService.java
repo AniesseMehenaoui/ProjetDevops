@@ -1,16 +1,18 @@
-/*package com.kenkogroup.kenko.user.service;
+//package com.kenkogroup.kenko.user.service;
 
-import com.kenkogroup.kenko.user.entity.User;
-import com.kenkogroup.kenko.user.exception.UserNullException;
-import com.kenkogroup.kenko.user.repository.UserRepository;
+//import com.kenkogroup.kenko.user.entity.User;
+//import com.kenkogroup.kenko.user.exception.UserNullException;
+//import com.kenkogroup.kenko.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+//import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 
-@Service
-public class UserService {
-    @Autowired
+//@Service
+
+//public class UserService {
+    /*@Autowired
     private UserRepository repository;
 
     public User saveUser(User user){
@@ -29,10 +31,10 @@ public class UserService {
         return repository.findById(id).orElse(null);
     }
 
-    public List<User> getUserByFirstname(String firstname){
+    /*public List<User> getUserByFirstname(String firstname){
         return repository.findByFirstname(firstname);
-    }
-    public List<User> getUserByLastname(String lastname) {
+    }*/
+    /*public List<User> getUserByLastname(String lastname) {
         return repository.findByLastname(lastname);
     }
 
@@ -43,13 +45,13 @@ public class UserService {
     public List<User> getUserBySize(float size) {
         return repository.findBySize(size);
     }
-    public List<User> getUserBySexe(User.Sexe sexe) {
+    /*public List<User> getUserBySexe(User.Sexe sexe) {
         return repository.findBySexe(sexe);
     }
     public List<User> getUserByUserCat(User.UserCategory userCat) {
         return repository.findByUserCat(userCat);
-    }
-    public List<User> getUserByWeight(float weight) {
+    }*/
+    /*public List<User> getUserByWeight(float weight) {
         return repository.findByWeight(weight);
     }
     public String deleteUserbyId(int id){
@@ -60,15 +62,15 @@ public class UserService {
     public User updateUserbyId(User user, int id) throws UserNullException {
         User existingUser = repository.findById(id).orElse(null);
         if (existingUser != null) {
-            if (user.getFirstname() != null) {
-                existingUser.setFirstname(user.getFirstname());
+            if (user.getFirstName() != null) {
+                existingUser.setFirstName(user.getFirstName());
             } else {
-                existingUser.setFirstname(existingUser.getFirstname());
+                existingUser.setFirstName(existingUser.getFirstName());
             }
             if (user.getLastname() != null) {
-                existingUser.setLastname(user.getLastname());
+                existingUser.setLastName(user.getLastname());
             } else {
-                existingUser.setFirstname(existingUser.getLastname());
+                existingUser.setFirstName(existingUser.getLastname());
             }
             if (user.getAge() > 0) {
                 existingUser.setAge(user.getAge());
@@ -80,10 +82,10 @@ public class UserService {
             } else {
                 existingUser.setSexe(existingUser.getSexe());
             }
-            if (user.getUserCat() != null) {
-                existingUser.setUserCat(user.getUserCat());
-            } else {
-                existingUser.setUserCat(existingUser.getUserCat());
+            //if (user.getUserCat() != null) {
+                //existingUser.setUserCat(user.getUserCat());
+            //} else {
+                //existingUser.setUserCat(existingUser.getUserCat());
             }
             if (user.getSize() > 0) {
                 existingUser.setSize(user.getSize());
@@ -96,13 +98,13 @@ public class UserService {
                 existingUser.setWeight(existingUser.getWeight());
             }
             return repository.save(existingUser);
-        } else {
-            throw new UserNullException("User is not existing");
-        }
-    }
+        } //else {
+           // throw new UserNullException("User is not existing");
+        //}*/
+    //}
 
     /*public Recipe saveRecipe(Recipe recipe){
         return repository.save(recipe,id);
     }*/
 
-//}
+

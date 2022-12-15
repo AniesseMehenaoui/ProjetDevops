@@ -11,7 +11,7 @@
      background-color: rgba(255, 255, 255, 0.753);
      text-align: center;
 }
-.row{
+.row1{
      display: grid;
      grid-template-columns: repeat(auto-fill,minmax(250px, 4fr));
      grid-column-gap: 10px;

@@ -74,7 +74,7 @@ return (
     <div>
         <h1 className="titre">La liste des ingrédients </h1>
         <div className="container1">
-            <div className="row">
+            <div className="row1">
                 {PRODUCTS.map((product)=>(
                     <div>
                         <span>{product.name}</span>
